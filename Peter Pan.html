@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="小飞侠; charset=UTF-8">
+		<title>Peter Pan</title>
+		<script type="text/javascript" class="library" src="./jquery-1.11.1.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				var alldata = new Array("👉🏻 阿 大 👈🏻", "👉🏻 阿 斌 👈🏻", "👉🏻 阿 威 👈🏻", "👉🏻 阿 玉 👈🏻", "👉🏻 阿 黎 👈🏻", "👉🏻 阿 莉 👈🏻", "👉🏻 阿 坨 👈🏻", "👉🏻 阿 壮 👈🏻", "👉🏻 阿 米 👈🏻", "👉🏻 阿 玲 👈🏻");
+				var num = alldata.length - 1;
+				var show = $("#show");
+				var btn = $("#btn");
+				var open = false;
+	
+				function change() {
+					var randomVal = Math.round(Math.random() * num);
+					var prizeName = alldata[randomVal];
+					show.text(prizeName);
+				}
+	
+				function run() {
+					if (!open) {
+						timer = setInterval(change, 20);
+						btn.removeClass('start').addClass('stop').text('Stop');
+						open = true;
+					} else {
+						clearInterval(timer);
+						btn.removeClass('stop').addClass('start').text('Go');
+						open = false;
+					}
+				}
+	
+				btn.click(function() {
+					run();
+				})
+	
+			})
+		</script>
+	
+		<style>
+			body {
+	        background: #232a34;
+	    }
+	
+	    .wrap {
+	        width: 600px;
+	        margin: 100px auto;
+	    }
+	
+	    .show {
+	        width: 600px;
+	        height: 300px;
+	        line-height: 300px;
+	        text-align: center;
+	        color: #fff;
+	        font-size: 60px;
+	        -moz-border-radius: 10px;
+	        -webkit-border-radius: 10px;
+	        border-radius: 10px;
+					border: 1px solid #444b55;
+	        -moz-box-shadow: 0px 10px 20px #1c2327;
+	        -webkit-box-shadow: 0px 10px 20px #1c2327;
+	        box-shadow: 0px 10px 20px #1c2327;
+	    }
+	
+	    .btn a {
+	        display: block;
+	        width: 150px;
+	        height: 60px;
+	        margin: 100px auto;
+	        text-align: center;
+	        line-height: 60px;
+	        text-decoration: none;
+					font-size: 24px;
+	        color: #fff;
+	        -moz-border-radius: 30px;
+	        -webkit-border-radius: 30px;
+	        border-radius: 30px;
+	    }
+	
+	        .btn a.start {
+	            background: #3e454f;
+	        }
+	
+	            .btn a.start:hover {
+	                background: #474f5a;
+	            }
+	
+	        .btn a.stop {
+	            background: #f65549;
+	        }
+	
+	            .btn a.stop:hover {
+	                background: #d7463b;
+	            }
+	</style>
+	
+		<script type="text/javascript" src="chrome-extension://dbjbempljhcmhlfpfacalomonjpalpko/scripts/inspector.js"></script><input
+		 type="hidden" id="_w_brink">
+	</head>
+	
+	<body>
+		<div class="wrap">
+			<div class="show" id="show">Are you ready</div>
+			<div class="btn">
+				<a href="javascript:void(0)" class="start" id="btn">Go</a>
+			</div>
+		</div>
+
+
+	</body>
+</html>
